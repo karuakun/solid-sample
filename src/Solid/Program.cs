@@ -47,6 +47,24 @@ namespace Solid
 
             // Dependency Injection
             {
+                {
+                    var tCfg = configuration.GetSection(TypetalkConfig.SectionName).Get<TypetalkConfig>();
+                    services.AddHttpClient(tCfg.TypetalkApiUrl, cfg =>
+                        {
+                            cfg.BaseAddress = new Uri(tCfg.TypetalkApiUrl);
+                        })
+                        .ConfigureHttpMessageHandlerBuilder(cfg =>
+                        {
+                            cfg.PrimaryHandler = new HttpClientHandler
+                            {
+                                UseCookies = false
+                            };
+                        });
+                }
+
+                //services.AddSingleton<Step2.IPostLoader, Step2.PostLoader>();
+                services.AddSingleton<Step2.IPostLoader, Step4.PostLoader>();
+                services.AddSingleton<Step2.IQueryCacheClient, Step2.QueryCacheClient>();
                 services.AddSingleton<Step3.IPostAggregater, Step3.PostAggregater>();
 
                 // Layout Repository を初期化
@@ -57,14 +75,17 @@ namespace Solid
                     services.AddSingleton(repo);
                 }
 
-                services.AddTransient<ILikedSummaryProcess, Step3.LikedSummaryProcess>();
+                //services.AddTransient<ILikedSummaryProcess, Step1.LikedSummaryProcess>();
+                //services.AddTransient<ILikedSummaryProcess, Step2.LikedSummaryProcess>();
+                //services.AddTransient<ILikedSummaryProcess, Step3.LikedSummaryProcess>();
+                services.AddTransient<ILikedSummaryProcess, Step4.LikedSummaryProcess>();
             }
 
             var space = configuration.GetValue<string>("space");
             var topic = configuration.GetValue<string>("topic");
             await services.BuildServiceProvider()
                 .GetService<ILikedSummaryProcess>()
-                .Run(space, topic, new DateTime(2018, 10, 01), new DateTime(2018, 10, 30), "json");
+                .Run(space, topic, new DateTime(2018, 10, 01), new DateTime(2018, 10, 30), "csv");
         }
     }
 }
