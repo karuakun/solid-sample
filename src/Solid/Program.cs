@@ -47,7 +47,7 @@ namespace Solid
 
             // Dependency Injection
             {
-                services.AddTransient<ILikedSummaryProcess, Step1.LikedSummaryProcess>();
+                services.AddTransient<ILikedSummaryProcess, Step2.LikedSummaryProcess>();
             }
 
             var space = configuration.GetValue<string>("space");
