@@ -47,7 +47,17 @@ namespace Solid
 
             // Dependency Injection
             {
-                services.AddTransient<ILikedSummaryProcess, Step2.LikedSummaryProcess>();
+                services.AddSingleton<Step3.IPostAggregater, Step3.PostAggregater>();
+
+                // Layout Repository を初期化
+                {
+                    var repo = new Step3.LayoutConverters.LayoutConveterRepository();
+                    repo.Register<Step3.LayoutConverters.CsvLayoutConverter>("csv");
+                    repo.Register<Step3.LayoutConverters.JsonLayoutConverter>("json");
+                    services.AddSingleton(repo);
+                }
+
+                services.AddTransient<ILikedSummaryProcess, Step3.LikedSummaryProcess>();
             }
 
             var space = configuration.GetValue<string>("space");
