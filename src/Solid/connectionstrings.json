@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "TypetalkData": "Server=localhost;Port=3399;Uid=root;Pwd=P@ssw0rd;Database=testdb"
+  }
+}

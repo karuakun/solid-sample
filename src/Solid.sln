@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid", "Solid\Solid.csproj", "{FB8D6C40-0411-434A-97ED-0C67C0B10C84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{CE613D2A-6E5F-4917-9C8A-1CA61A854FDA}"
+	ProjectSection(SolutionItems) = preProject
+		docker\docker-compose.yml = docker\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{4B214687-64C8-4DC2-A517-74EDA0217078}"
+	ProjectSection(SolutionItems) = preProject
+		docker\database\001_second_database.sh = docker\database\001_second_database.sh
+		docker\database\testdb.sql_ = docker\database\testdb.sql_
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB8D6C40-0411-434A-97ED-0C67C0B10C84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8D6C40-0411-434A-97ED-0C67C0B10C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8D6C40-0411-434A-97ED-0C67C0B10C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8D6C40-0411-434A-97ED-0C67C0B10C84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B214687-64C8-4DC2-A517-74EDA0217078} = {CE613D2A-6E5F-4917-9C8A-1CA61A854FDA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1E96113-6BD6-4BFA-843D-175058D2A0B1}
+	EndGlobalSection
+EndGlobal
