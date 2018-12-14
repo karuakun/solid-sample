@@ -75,10 +75,10 @@ namespace Solid
                     services.AddSingleton(repo);
                 }
 
-                //services.AddTransient<ILikedSummaryProcess, Step1.LikedSummaryProcess>();
+                services.AddTransient<ILikedSummaryProcess, Step1.LikedSummaryProcess>();
                 //services.AddTransient<ILikedSummaryProcess, Step2.LikedSummaryProcess>();
                 //services.AddTransient<ILikedSummaryProcess, Step3.LikedSummaryProcess>();
-                services.AddTransient<ILikedSummaryProcess, Step4.LikedSummaryProcess>();
+                //services.AddTransient<ILikedSummaryProcess, Step4.LikedSummaryProcess>();
             }
 
             var space = configuration.GetValue<string>("space");
